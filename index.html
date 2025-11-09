@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Utilidades - Tudo para o seu dia a dia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-top">
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <h1>Loja de Utilidades</h1>
+                    <p class="tagline">Tudo para o seu dia a dia</p>
+                </div>
+                <div class="header-actions">
+                    <button class="search-toggle" id="searchToggle" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="cart-btn" id="cartBtn" aria-label="Carrinho">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </div>
+            </div>
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Buscar produtos..." id="searchInput">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>Menu</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="menu-list">
+            <li><a href="#" class="menu-link active"><i class="fas fa-home"></i> Início</a></li>
+            <li class="menu-category">
+                <button class="category-toggle" data-category="construcao">
+                    <span><i class="fas fa-hammer"></i> Construção</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu" id="construcao">
+                    <li><a href="#" data-filter="Cimento">Cimento <span class="count">(12)</span></a></li>
+                    <li><a href="#" data-filter="PVC e Tubos">PVC e Tubos <span class="count">(28)</span></a></li>
+                    <li><a href="#" data-filter="Ferramentas">Ferramentas <span class="count">(45)</span></a></li>
+                </ul>
+            </li>
+            <li class="menu-category">
+                <button class="category-toggle" data-category="jardim">
+                    <span><i class="fas fa-leaf"></i> Jardim</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu" id="jardim">
+                    <li><a href="#" data-filter="Ferramentas">Ferramentas <span class="count">(35)</span></a></li>
+                    <li><a href="#" data-filter="Irrigação">Irrigação <span class="count">(22)</span></a></li>
+                    <li><a href="#" data-filter="Sementes">Sementes <span class="count">(18)</span></a></li>
+                </ul>
+            </li>
+            <li class="menu-category">
+                <button class="category-toggle" data-category="pets">
+                    <span><i class="fas fa-paw"></i> Pets</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu" id="pets">
+                    <li><a href="#" data-filter="Ração Cães">Ração Cães <span class="count">(25)</span></a></li>
+                    <li><a href="#" data-filter="Ração Gatos">Ração Gatos <span class="count">(20)</span></a></li>
+                    <li><a href="#" data-filter="Acessórios">Acessórios <span class="count">(40)</span></a></li>
+                </ul>
+            </li>
+            <li class="menu-category">
+                <button class="category-toggle" data-category="brinquedos">
+                    <span><i class="fas fa-gamepad"></i> Brinquedos</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu" id="brinquedos">
+                    <li><a href="#" data-filter="Educativos">Educativos <span class="count">(30)</span></a></li>
+                    <li><a href="#" data-filter="Esportivos">Esportivos <span class="count">(25)</span></a></li>
+                    <li><a href="#" data-filter="Bebês">Bebês <span class="count">(20)</span></a></li>
+                </ul>
+            </li>
+            <li class="menu-category">
+                <button class="category-toggle" data-category="casa">
+                    <span><i class="fas fa-home"></i> Casa &amp; Cozinha</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="submenu" id="casa">
+                    <li><a href="#" data-filter="Utensílios">Utensílios <span class="count">(50)</span></a></li>
+                    <li><a href="#" data-filter="Organização">Organização <span class="count">(35)</span></a></li>
+                    <li><a href="#" data-filter="Decoração">Decoração <span class="count">(28)</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="menu-link"><i class="fas fa-tags"></i> Ofertas Especiais</a></li>
+            <li><a href="#" class="menu-link"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Oferta Especial</span>
+            <h2>Mega Promoção de Novembro</h2>
+            <p>Até 25% OFF em produtos selecionados</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Seg</span>
+                </div>
+            </div>
+            <button class="cta-btn">Aproveitar Agora</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- New Products -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Novos Produtos</h2>
+                <a href="#" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid" id="newProducts"></div>
+        </section>
+
+        <!-- Deal of the Day -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2><i class="fas fa-fire"></i> Oferta do Dia</h2>
+            </div>
+            <div class="deal-container" id="dealOfDay"></div>
+        </section>
+
+        <!-- Best Rated -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2><i class="fas fa-crown"></i> Mais Bem Avaliados</h2>
+                <a href="#" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid" id="bestRated"></div>
+        </section>
+
+        <!-- Trends -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Em Alta</h2>
+                <a href="#" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid" id="trends"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Categorias Populares</h3>
+                <ul>
+                    <li><a href="#">Construção</a></li>
+                    <li><a href="#">Ferramentas</a></li>
+                    <li><a href="#">Jardim</a></li>
+                    <li><a href="#">Pets</a></li>
+                    <li><a href="#">Brinquedos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Empresa</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Entregas</a></li>
+                    <li><a href="#">Rastrear Pedido</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
+                    <li><i class="fas fa-envelope"></i> contato@lojautilidades.com.br</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua das Ferramentas, 123<br>São Paulo, SP</li>
+                </ul>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <span>Formas de Pagamento:</span>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-qrcode" title="Pix"></i>
+                    <i class="fas fa-barcode" title="Boleto"></i>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Loja de Utilidades. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Produto adicionado ao carrinho!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
